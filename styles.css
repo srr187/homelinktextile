@@ -141,14 +141,120 @@
       border-bottom: 1px solid rgba(219, 227, 235, 0.75);
     }
 
+  
     .nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+}
 
+.nav-toggle {
+  display: none;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  border-radius: 14px;
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0 8px 20px rgba(15, 34, 58, 0.06);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 999px;
+  transition: 0.25s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.site-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 26px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.site-nav a {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.site-nav a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 860px) {
+  .nav {
+    min-height: 76px;
+    padding: 12px 0;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    display: none;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 14px;
+  }
+
+  .site-nav.open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  .site-nav a:hover {
+    background: #f5f7fa;
+  }
+}
     .brand {
       display: flex;
       align-items: center;
@@ -331,6 +437,11 @@
       box-shadow: var(--shadow);
       height: 100%;
     }
+    
+    .panel p {
+      margin-top: 4px;
+      text-align: justify;
+    }
 
     .list {
       list-style: none;
@@ -450,7 +561,11 @@
       padding: 22px;
       box-shadow: var(--shadow);
     }
-
+    
+    .market-box p {
+      text-align: justify;
+      
+    }
     .market-box strong {
       display: block;
       font-size: 18px;
